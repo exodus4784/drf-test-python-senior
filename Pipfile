@@ -1,0 +1,44 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+alembic = "*"
+asgiref = "*"
+black = "*"
+django = "*"
+django-filter = "*"
+django-redis = "*"
+django-rest-framework = "*"
+djangorestframework = "*"
+drf-yasg = "*"
+inflection = "*"
+iniconfig = "*"
+mako = "*"
+markupsafe = "*"
+mypy-extensions = "*"
+mysql-connector-python = "*"
+sqlalchemy = "*"
+sqlparse = "*"
+click = "*"
+pytest = "*"
+pytz = "*"
+pyyaml = "*"
+typing-extensions = "*"
+uritemplate = "*"
+redis = "*"
+protobuf = "*"
+pluggy = "*"
+packaging = "*"
+platformdirs = "*"
+coverage = "*"
+djangorestframework-jsonapi = {version = "*", extras = ["django-filter"]}
+pymysql = "*"
+mysqlclient = "*"
+pytest-django = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"

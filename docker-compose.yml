@@ -1,0 +1,38 @@
+version: '3.6'
+services:
+  cache:
+    image: redis:6.2-alpine
+    container_name: wallets-cache
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 100
+  db:
+    image: mysql:latest
+    container_name: wallets-db
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - wallets-db:/var/lib/mysql
+    ports:
+      - "3307:3306"
+  web:
+    image: wallets-app:latest
+    container_name: wallets-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./wallets:/wallets
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - cache
+    env_file:
+      - .env
+    restart: always
+
+volumes:
+  wallets-db:
